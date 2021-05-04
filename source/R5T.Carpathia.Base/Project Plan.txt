@@ -1,0 +1,9 @@
+R5T.Carpathia.Base - Base service definitiions library for private, shared, and default organization directory path related services.
+
+* Async.
+* Parameterless GetX() methods.
+* Stringly-typed paths.
+
+
+Goals
+
