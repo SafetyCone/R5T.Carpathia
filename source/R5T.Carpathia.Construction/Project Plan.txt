@@ -1,0 +1,4 @@
+R5T.Carpathia.Construction - A construction console-app for the library R5T.Carpathia.
+
+Goals
+
