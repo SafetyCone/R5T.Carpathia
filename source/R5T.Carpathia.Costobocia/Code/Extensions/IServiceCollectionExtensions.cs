@@ -75,7 +75,8 @@ namespace R5T.Carpathia.Costobocia
         /// <summary>
         /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service as the <see cref="IPrivateOrganizationDirectoryPathProvider"/> service as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        private static IServiceCollection UsePrivateOrganizationDirectoryPathProvider(this IServiceCollection services)
+        public static IServiceCollection UsePrivateOrganizationDirectoryPathProvider(this IServiceCollection services,
+            IServiceAction<IPrivateOrganizationDirectoryPathProvider> privateOrganizationDirectoryPathProviderAction)
         {
             services
                 .AddSingleton<IOrganizationDirectoryPathProvider>((serviceProvider) =>
@@ -83,6 +84,7 @@ namespace R5T.Carpathia.Costobocia
                     var privateOrganizationDirectoryPathProvider = serviceProvider.GetRequiredService<IPrivateOrganizationDirectoryPathProvider>();
                     return privateOrganizationDirectoryPathProvider;
                 })
+                .Run(privateOrganizationDirectoryPathProviderAction)
                 ;
 
             return services;
@@ -91,16 +93,19 @@ namespace R5T.Carpathia.Costobocia
         /// <summary>
         /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service as the <see cref="IPrivateOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        private static IServiceAction<IOrganizationDirectoryPathProvider> UsePrivateOrganizationDirectoryPathProviderAction(this IServiceCollection services)
+        public static IServiceAction<IOrganizationDirectoryPathProvider> UsePrivateOrganizationDirectoryPathProviderAction(this IServiceCollection services,
+            IServiceAction<IPrivateOrganizationDirectoryPathProvider> privateOrganizationDirectoryPathProviderAction)
         {
-            var serviceAction = ServiceAction.New<IOrganizationDirectoryPathProvider>(() => services.UsePrivateOrganizationDirectoryPathProvider());
+            var serviceAction = ServiceAction.New<IOrganizationDirectoryPathProvider>(() => services.UsePrivateOrganizationDirectoryPathProvider(
+                privateOrganizationDirectoryPathProviderAction));
             return serviceAction;
         }
 
         /// <summary>
         /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service as the <see cref="ISharedOrganizationDirectoryPathProvider"/> service as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        private static IServiceCollection UseSharedOrganizationDirectoryPathProvider(this IServiceCollection services)
+        public static IServiceCollection UseSharedOrganizationDirectoryPathProvider(this IServiceCollection services,
+            IServiceAction<ISharedOrganizationDirectoryPathProvider> sharedOrganizationDirectoryPathProviderAction)
         {
             services
                 .AddSingleton<IOrganizationDirectoryPathProvider>((serviceProvider) =>
@@ -108,6 +113,7 @@ namespace R5T.Carpathia.Costobocia
                     var sharedOrganizationDirectoryPathProvider = serviceProvider.GetRequiredService<ISharedOrganizationDirectoryPathProvider>();
                     return sharedOrganizationDirectoryPathProvider;
                 })
+                .Run(sharedOrganizationDirectoryPathProviderAction)
                 ;
 
             return services;
@@ -116,9 +122,12 @@ namespace R5T.Carpathia.Costobocia
         /// <summary>
         /// Adds the <see cref="IOrganizationDirectoryPathProvider"/> service as the <see cref="ISharedOrganizationDirectoryPathProvider"/> service as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        private static IServiceAction<IOrganizationDirectoryPathProvider> UseSharedOrganizationDirectoryPathProviderAction(this IServiceCollection services)
+        public static IServiceAction<IOrganizationDirectoryPathProvider> UseSharedOrganizationDirectoryPathProviderAction(this IServiceCollection services,
+            IServiceAction<ISharedOrganizationDirectoryPathProvider> sharedOrganizationDirectoryPathProviderAction)
         {
-            var serviceAction = ServiceAction.New<IOrganizationDirectoryPathProvider>(() => services.UseSharedOrganizationDirectoryPathProvider());
+            var serviceAction = ServiceAction.New<IOrganizationDirectoryPathProvider>(() => services.UseSharedOrganizationDirectoryPathProvider(
+                sharedOrganizationDirectoryPathProviderAction));
+
             return serviceAction;
         }
     }
