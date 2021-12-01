@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using R5T.T0064;
+
 
 namespace R5T.Carpathia.Default
 {
-    public class SharedDirectoryNameProvider : ISharedDirectoryNameProvider
+    [ServiceImplementationMarker]
+    public class SharedDirectoryNameProvider : ISharedDirectoryNameProvider, IServiceImplementation
     {
         public Task<string> GetSharedDirectoryName()
         {

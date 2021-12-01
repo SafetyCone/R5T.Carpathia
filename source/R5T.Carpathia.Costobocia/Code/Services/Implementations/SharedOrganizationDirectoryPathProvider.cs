@@ -3,12 +3,15 @@ using System.Threading.Tasks;
 
 using R5T.Lombardy;
 
+using R5T.T0064;
+
 using IOrganizationalDirectoryPathProvider = R5T.Costobocia.IOrganizationDirectoryPathProvider;
 
 
 namespace R5T.Carpathia.Costobocia
 {
-    public class SharedOrganizationDirectoryPathProvider : ISharedOrganizationDirectoryPathProvider
+    [ServiceImplementationMarker]
+    public class SharedOrganizationDirectoryPathProvider : ISharedOrganizationDirectoryPathProvider, IServiceImplementation
     {
         private IOrganizationalDirectoryPathProvider OrganizationalDirectoryPathProvider { get; }
         private ISharedDirectoryNameProvider SharedDirectoryNameProvider { get; }

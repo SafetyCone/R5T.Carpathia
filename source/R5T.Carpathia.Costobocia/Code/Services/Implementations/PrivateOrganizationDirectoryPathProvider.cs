@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Threading.Tasks;
 
+using R5T.T0064;
+
 using IOrganizationalDirectoryPathProvider = R5T.Costobocia.IOrganizationDirectoryPathProvider;
 
 
 namespace R5T.Carpathia.Costobocia
 {
-    public class PrivateOrganizationDirectoryPathProvider : IPrivateOrganizationDirectoryPathProvider
+    [ServiceImplementationMarker]
+    public class PrivateOrganizationDirectoryPathProvider : IPrivateOrganizationDirectoryPathProvider, IServiceImplementation
     {
         private IOrganizationalDirectoryPathProvider OrganizationalDirectoryPathProvider { get; }
 
