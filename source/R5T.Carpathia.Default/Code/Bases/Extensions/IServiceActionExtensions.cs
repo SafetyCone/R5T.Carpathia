@@ -9,7 +9,7 @@ namespace R5T.Carpathia.Default
     public static class IServiceActionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="SharedDirectoryNameProvider"/> implementation of <see cref="ISharedDirectoryNameProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="SharedDirectoryNameProvider"/> implementation of <see cref="ISharedDirectoryNameProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<ISharedDirectoryNameProvider> AddSharedDirectoryNameProviderAction(this IServiceAction _)
         {

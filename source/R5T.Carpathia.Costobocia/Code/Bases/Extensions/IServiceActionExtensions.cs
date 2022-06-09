@@ -13,7 +13,7 @@ namespace R5T.Carpathia.Costobocia
     public static class IServiceActionExtensions
     {
         /// <summary>
-        /// Forwards the <see cref="ISharedOrganizationDirectoryPathProvider"/> service to <see cref="IOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Forwards the <see cref="ISharedOrganizationDirectoryPathProvider"/> service to <see cref="IOrganizationDirectoryPathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IOrganizationDirectoryPathProvider> ForwardToIOrganizationDirectoryPathProviderAction(this IServiceAction _,
             IServiceAction<ISharedOrganizationDirectoryPathProvider> sharedOrganizationDirectoryPathProviderAction)
@@ -25,7 +25,7 @@ namespace R5T.Carpathia.Costobocia
         }
 
         /// <summary>
-        /// Forwards the <see cref="IPrivateOrganizationDirectoryPathProvider"/> service to <see cref="IOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Forwards the <see cref="IPrivateOrganizationDirectoryPathProvider"/> service to <see cref="IOrganizationDirectoryPathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IOrganizationDirectoryPathProvider> ForwardToIOrganizationDirectoryPathProviderAction(this IServiceAction _,
             IServiceAction<IPrivateOrganizationDirectoryPathProvider> privateOrganizationDirectoryPathProviderAction)
@@ -37,7 +37,7 @@ namespace R5T.Carpathia.Costobocia
         }
 
         /// <summary>
-        /// Adds the <see cref="SharedOrganizationDirectoryPathProvider"/> implementation of <see cref="ISharedOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="SharedOrganizationDirectoryPathProvider"/> implementation of <see cref="ISharedOrganizationDirectoryPathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<ISharedOrganizationDirectoryPathProvider> AddSharedOrganizationDirectoryPathProviderAction(this IServiceAction _,
             IServiceAction<IOrganizationalDirectoryPathProvider> organizationalDirectoryPathProviderAction,
@@ -53,7 +53,7 @@ namespace R5T.Carpathia.Costobocia
         }
 
         /// <summary>
-        /// Adds the <see cref="PrivateOrganizationDirectoryPathProvider"/> implementation of <see cref="IPrivateOrganizationDirectoryPathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="PrivateOrganizationDirectoryPathProvider"/> implementation of <see cref="IPrivateOrganizationDirectoryPathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IPrivateOrganizationDirectoryPathProvider> AddPrivateOrganizationDirectoryPathProviderAction(this IServiceAction _,
             IServiceAction<IOrganizationalDirectoryPathProvider> organizationalDirectoryPathProviderAction)
